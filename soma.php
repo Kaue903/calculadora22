@@ -3,8 +3,8 @@
         <meta charset="UTF-8">
         <title>Calculadora Simples</title>
     </head>
-    <body>
-        <h1>Calculadora Simples</h1>
+    <body style="background-color: lightblue;">
+        <h1>Calculadora MarcosMática</h1>
         <form method="GET" action="">
             <label for="num1">Número1:</label><br>
             <input type="text" name="n1"><br>
@@ -27,16 +27,16 @@
                     $n2 = $_GET['n2'];
 
                     // Funções para as operações
-                    function soma($n1, $n2) {
-                        return $n1 + $n2;
-                    }
 
+                     function multiplicacao($n1, $n2) {
+                        return $n1 * $n2;
+                    }
                     function subtracao($n1, $n2) {
                         return $n1 - $n2;
                     }
 
-                    function multiplicacao($n1, $n2) {
-                        return $n1 * $n2;
+                    function soma($n1, $n2) {
+                        return $n1 + $n2;
                     }
 
                     function divisao($n1, $n2) {
@@ -47,15 +47,16 @@
                     }
 
                     // Exibir o resultado conforme a operação escolhida
+                      } elseif ($_GET['op'] == 'divisão') {
+                        echo "<h2>Resultado: $n1 ÷ $n2 = " . divisao($n1, $n2) . "</h2>";
+                    }
                     if ($_GET['op'] == 'soma') {
                         echo "<h2>Resultado: $n1 + $n2 = " . soma($n1, $n2) . "</h2>";
                     } elseif ($_GET['op'] == 'subtração') {
                         echo "<h2>Resultado: $n1 - $n2 = " . subtracao($n1, $n2) . "</h2>";
                     } elseif ($_GET['op'] == 'multiplicação') {
                         echo "<h2>Resultado: $n1 * $n2 = " . multiplicacao($n1, $n2) . "</h2>";
-                    } elseif ($_GET['op'] == 'divisão') {
-                        echo "<h2>Resultado: $n1 ÷ $n2 = " . divisao($n1, $n2) . "</h2>";
-                    }
+                  
                 } else {
                     echo "<h2>Por favor, insira números válidos.</h2>";
                 }
