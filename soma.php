@@ -10,8 +10,15 @@
             <input type="text" name="n1"><br>
             <label for="num2">Número2:</label><br>
             <input type="text" name="n2"><br>
-            <input type="submit" value="Calcular">
-            <fieldset>
+            
+           <button type="submit" style="background:white; color:black; padding:5px 15px; border:none; border-radius:5px; cursor:pointer;">
+    Calcular
+</button>
+             <button type="button" onclick="window.location.href=window.location.pathname;" style="background:white; color:black; padding:5px 15px; border:none; border-radius:5px; cursor:pointer;">
+                Reset
+            </button>
+            
+            <fieldset style="display:inline-block; margin-top:15px; text-align:left;">
                 <legend>Operações</legend>
                 <input type="radio" name="op" value="soma" checked>Soma<br>
                 <input type="radio" name="op" value="subtração">Subtração<br>
@@ -21,13 +28,18 @@
         </form>
         
         <?php
-            if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-                if (isset($_GET['n1']) && isset($_GET['n2']) && is_numeric($_GET['n1']) && is_numeric($_GET['n2'])) {
+            // Caminhos das imagens
+            $imgPensador = "pensador.png";  
+            $imgCorreto = "correto.png";  
+
+            if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['n1']) && isset($_GET['n2']) && $_GET['n1'] !== "" && $_GET['n2'] !== "") {
+                if (is_numeric($_GET['n1']) && is_numeric($_GET['n2'])) {
                     $n1 = $_GET['n1'];
                     $n2 = $_GET['n2'];
+                    $op = $_GET['op'];
 
-                    // Funções para as operações
-                     function multiplicacao($n1, $n2) {
+                    // Funções
+                    function multiplicacao($n1, $n2) {
                         return $n1 * $n2;
                     }
                     function subtracao($n1, $n2) {
@@ -43,20 +55,24 @@
                         return $n1 / $n2;
                     }
 
-                    // Exibir o resultado conforme a operação escolhida
-                      } elseif ($_GET['op'] == 'divisão') {
+                    // Resultado + imagem do joinha
+                    if ($op == 'soma') {
+                        echo "<h2>Resultado: $n1 + $n2 = " . soma($n1, $n2) . "</h2>";
+                    } elseif ($op == 'subtração') {
+                        echo "<h2>Resultado: $n1 - $n2 = " . subtracao($n1, $n2) . "</h2>";
+                    } elseif ($op == 'multiplicação') {
+                        echo "<h2>Resultado: $n1 * $n2 = " . multiplicacao($n1, $n2) . "</h2>";
+                    } elseif ($op == 'divisão') {
                         echo "<h2>Resultado: $n1 ÷ $n2 = " . divisao($n1, $n2) . "</h2>";
                     }
-                    if ($_GET['op'] == 'soma') {
-                        echo "<h2>Resultado: $n1 + $n2 = " . soma($n1, $n2) . "</h2>";
-                    } elseif ($_GET['op'] == 'subtração') {
-                        echo "<h2>Resultado: $n1 - $n2 = " . subtracao($n1, $n2) . "</h2>";
-                    } elseif ($_GET['op'] == 'multiplicação') {
-                        echo "<h2>Resultado: $n1 * $n2 = " . multiplicacao($n1, $n2) . "</h2>";
-                  
+
+                    echo "<br><img src='$imgCorreto' width='150'>";
                 } else {
                     echo "<h2>Por favor, insira números válidos.</h2>";
                 }
+            } else {
+                // Antes de calcular → mostra o pensador
+                echo "<img src='$imgPensador' width='150'>";
             }
         ?>
     </body>
