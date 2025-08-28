@@ -4,7 +4,6 @@
         <title>Calculadora Simples</title>
     </head>
     <body>
-        <bgcolor="#6edfe3ff">
         <h1>Calculadora Simples</h1>
         <form method="GET" action="">
             <label for="num1">Número1:</label><br>
@@ -15,6 +14,9 @@
             <fieldset style="margin-right: 1000px;">
                 <legend>Operações</legend>
                 <input type="radio" name="op" value="soma" checked>Soma<br>
+                <input type="radio" name="op" value="subtração">Subtração<br>
+                <input type="radio" name="op" value="multiplicação">Multiplicação<br>
+                <input type="radio" name="op" value="divisão">Divisão<br>
             </fieldset>
         </form>
         
@@ -27,13 +29,32 @@
                     // Funções para as operações
                     function soma($n1, $n2) {
                         return $n1 + $n2;
-                    
+                    }
+
+                    function subtracao($n1, $n2) {
+                        return $n1 - $n2;
+                    }
+
+                    function multiplicacao($n1, $n2) {
+                        return $n1 * $n2;
+                    }
+
+                    function divisao($n1, $n2) {
+                        if ($n2 == 0) {
+                            return "Erro: Divisão por zero!";
+                        }
+                        return $n1 / $n2;
                     }
 
                     // Exibir o resultado conforme a operação escolhida
                     if ($_GET['op'] == 'soma') {
                         echo "<h2>Resultado: $n1 + $n2 = " . soma($n1, $n2) . "</h2>";
                     } elseif ($_GET['op'] == 'subtração') {
+                        echo "<h2>Resultado: $n1 - $n2 = " . subtracao($n1, $n2) . "</h2>";
+                    } elseif ($_GET['op'] == 'multiplicação') {
+                        echo "<h2>Resultado: $n1 * $n2 = " . multiplicacao($n1, $n2) . "</h2>";
+                    } elseif ($_GET['op'] == 'divisão') {
+                        echo "<h2>Resultado: $n1 ÷ $n2 = " . divisao($n1, $n2) . "</h2>";
                     }
                 } else {
                     echo "<h2>Por favor, insira números válidos.</h2>";
