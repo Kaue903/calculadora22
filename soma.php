@@ -55,6 +55,15 @@
                         return $n1 / $n2;
                     }
 
+                    function módulo ($n1, $n2) {
+                        return $n1 % $n2;
+                    }
+
+                    function exponencial ($n1, $n2){
+                        return $n1 ** $n2;
+                    }
+
+
                     // Resultado + imagem do joinha
                     if ($op == 'soma') {
                         echo "<h2>Resultado: $n1 + $n2 = " . soma($n1, $n2) . "</h2>";
