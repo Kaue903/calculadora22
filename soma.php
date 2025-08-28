@@ -9,8 +9,9 @@
     <script src='main.js'></script>
 </head>
 <body>
+
     <?php
-        $x = 5 + 5 + 15;
+        $total = $x = $y;
         echo "<h1> Total: " . $x . "</h1>";
     ?>
 
