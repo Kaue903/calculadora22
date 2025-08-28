@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
         <title>Calculadora Simples</title>
     </head>
-    <body style="background-color: lightblue;">
+    <body style="background-color: lightblue; text-align:center;">
         <h1>Calculadora MarcosMática</h1>
         <form method="GET" action="">
             <label for="num1">Número1:</label><br>
@@ -11,7 +11,7 @@
             <label for="num2">Número2:</label><br>
             <input type="text" name="n2"><br>
             <input type="submit" value="Calcular">
-            <fieldset style="margin-right: 1000px;">
+            <fieldset>
                 <legend>Operações</legend>
                 <input type="radio" name="op" value="soma" checked>Soma<br>
                 <input type="radio" name="op" value="subtração">Subtração<br>
@@ -27,18 +27,15 @@
                     $n2 = $_GET['n2'];
 
                     // Funções para as operações
-
                      function multiplicacao($n1, $n2) {
                         return $n1 * $n2;
                     }
                     function subtracao($n1, $n2) {
                         return $n1 - $n2;
                     }
-
                     function soma($n1, $n2) {
                         return $n1 + $n2;
                     }
-
                     function divisao($n1, $n2) {
                         if ($n2 == 0) {
                             return "Erro: Divisão por zero!";
