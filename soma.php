@@ -14,7 +14,7 @@
             <button type="submit" style="background:white; color:black; padding:5px 15px; border:none; border-radius:5px; cursor:pointer;">
                 Calcular
             </button>
-            <button type="button" onclick="window.location.href=window.location.pathname;" style="background:white; color:black; padding:5px 15px; border:none; border-radius:5px; cursor:pointer;">
+            <button type="button" onclick="window.location.href=window.location.pathname;" style="background:red; color:white; padding:5px 15px; border:none; border-radius:5px; cursor:pointer;">
                 Reset
             </button>
             
