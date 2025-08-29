@@ -1,10 +1,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Calculadora Simples</title>
+       <title>Calculadora dos bom e novo</title>
     </head>
     <body style="background-color: lightblue; text-align:center;">
-        <h1>Calculadora MarcosMática</h1>
+        <h1 style="color:red;">Calculadora MarcosMática</h1>
         <form method="GET" action="">
             <label for="num1">Número1:</label><br>
             <input type="text" name="n1"><br>
